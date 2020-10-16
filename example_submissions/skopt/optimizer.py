@@ -139,10 +139,10 @@ class ScikitOptimizer(AbstractOptimizer):
         # Supposedly skopt can handle blocks, but not sure about interface for
         # that. Just do loop to be safe for now.
         for xx, yy in zip(X, y):
-            # skopt needs lists instead of dicts
-            xx = [xx[dim_name] for dim_name in self.dimensions_list]
             # Just ignore, any inf observations we got, unclear if right thing
             if np.isfinite(yy):
+                # skopt needs lists instead of dicts
+                xx = [xx[dim_name] for dim_name in self.dimensions_list]
                 self.skopt.tell(xx, yy)
 
 
