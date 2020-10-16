@@ -174,8 +174,7 @@ class OpentunerOptimizer(AbstractOptimizer):
         hashable_object : frozenset of tuple pairs
             Bijective equivalent to dict that can be hashed.
         """
-        hashable_object = frozenset(d.items())
-        return hashable_object
+        return frozenset(d.items())
 
     @staticmethod
     def build_manipulator(api_config):

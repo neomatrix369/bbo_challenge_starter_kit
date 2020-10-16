@@ -36,8 +36,13 @@ class RandomOptimizer(AbstractOptimizer):
             function. Each suggestion is a dictionary where each key
             corresponds to a parameter being optimized.
         """
-        x_guess = rs.suggest_dict([], [], self.api_config, n_suggestions=n_suggestions, random=self.random)
-        return x_guess
+        return rs.suggest_dict(
+            [],
+            [],
+            self.api_config,
+            n_suggestions=n_suggestions,
+            random=self.random,
+        )
 
     def observe(self, X, y):
         """Feed an observation back.
